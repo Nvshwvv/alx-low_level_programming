@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  *
- * Description: print a qout using write function
+ * Description: print a quot using write function
  *	write(int fd.const void *buf.size_t count)
  *
  * Return: 1 (not success)
