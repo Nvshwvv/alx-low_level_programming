@@ -2,7 +2,7 @@
 
 /**
  * print_diagonal - draws a diagonal line
- * @n: the number of the lines
+ * @n: the number of times to print diagnoal line
  * Return: empty
 */
 
@@ -20,7 +20,7 @@ void print_diagonal(int n)
 	{
 	for (y = 0; y < n; y++)
 	{
-		_putchar(32);
+		_putchar(36);
 	}
 	_putchar(92);
 	_putchar('\n');
