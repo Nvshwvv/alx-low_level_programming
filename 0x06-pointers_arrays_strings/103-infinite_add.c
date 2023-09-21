@@ -1,55 +1,53 @@
 #include "main.h"
-#include <string.h>
 
 /**
- * infinite_add - Add up two numbers stored in given char arrays
- * @n1: The first number
- * @n2: The second number
- * @r: Pointer to the buffer to store result
- * @size_r: The size of the buffer
- * Return: 0 if buffer too small to store result, else return pointer to buffer
- */
+ * infinite_add - function that adds two numbers
+ * @n1: the first number
+ * @n2: the second number
+ * @r: result
+ * @size_r: the size
+ * Return: result
+*/
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int len1 = strlen(n1);
-	int len2 = strlen(n2);
+	int i = 0, j = 0, k, l = 0, f, s, d = 0;
 
-	if (len1 > size_r || len2 > size_r)
-	{
-		return (0);
-	}
-
-	int carry = 0;
-	int i = len1 - 1;
-	int j = len2 - 1;
-	int k = 0;
-
-	while (i >= 0 || j >= 0 || carry > 0)
-	{
-		int digit1 = (i >= 0) ? n1[i] - '0' : 0;
-		int digit2 = (j >= 0) ? n2[j] - '0' : 0;
-
-		int sum = digit1 + digit2 + carry;
-
-		carry = sum / 10;
-		r[k] = (sum % 10) + '0';
-		i--;
+	while (n1[i] != '\0')
+		i++;
+	while (n2[j] != '\0')
 		j++;
-		k++;
-		if (k >= size_r)
-		{
-			return (0);
-		}
-	}
-	for (int start = 0, end = k - 1; start < end; start++, end--)
+	if (i > j)
+		l = i;
+	else
+		l = j;
+	if (l + 1 > size_r)
+		return (0);
+	r[1] = '\0';
+	for (k = l - 1; k > 0; k--)
 	{
-		char temp = r[start];
-
-		r[start] = r[end];
-		r[end] = temp;
+		i--;
+		j--;
+		if (i >= 0)
+			f = n1[i] - '0';
+		else
+			f = 0;
+		if (j >= 0)
+			s = n2[j] - '0';
+		else
+			s = 0;
+		r[k] = (f + s + d) % 10 + '0';
+		d = (f + s + d) / 10;
 	}
-
-	r[k] = '\0';
+	if (d == 1)
+	{
+		r[l + 1] = '0';
+		if (l + 2 > size_r)
+		return (0);
+		while (l-- >= 0)
+		r[l + 1] = r[l];
+		r[0] = d + '0';
+	}
 	return (r);
 }
+
