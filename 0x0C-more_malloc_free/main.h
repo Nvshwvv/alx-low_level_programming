@@ -12,5 +12,5 @@ int _putchar(char);
 int multiply(int num1, int num2);
 int isDigitsOnly(const char *str);
 int main(int argc, char *argv[]);
-
+double pow(double x, double y);
 #endif
